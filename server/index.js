@@ -1,5 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
+const authRouter = require("./routes/auth");
+
 
 const PORT = process.env.PORT | 3001;
 
@@ -7,7 +9,8 @@ const app = express();
 
 const DB = "mongodb+srv://Etukz:Enokudo09@cluster0.dqsfhmo.mongodb.net/?retryWrites=true&w=majority";
 
-app.post('/api/signup', (req, res) =>{})
+app.use(express.json());
+app.use(authRouter);
 
 mongoose.connect(DB).then(() => {
     console.log("Connection successful");
