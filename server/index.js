@@ -1,5 +1,6 @@
 const express = require("express");
 const mongoose = require("mongoose");
+const cors = require("cors");
 const authRouter = require("./routes/auth");
 
 
@@ -9,6 +10,7 @@ const app = express();
 
 const DB = "mongodb+srv://Etukz:Enokudo09@cluster0.dqsfhmo.mongodb.net/?retryWrites=true&w=majority";
 
+app.use(cors());
 app.use(express.json());
 app.use(authRouter);
 
